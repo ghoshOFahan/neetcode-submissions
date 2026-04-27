@@ -1,0 +1,26 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        int l=0,r=s.length()-1;
+        while(l<r)
+        {
+            while(l<r && !AlphaNum(s.charAt(l)))
+            {
+                l++;
+            }
+            while(l<r && !AlphaNum(s.charAt(r)))
+            {
+                r--;
+            }
+            while(Character.toLowerCase(s.charAt(l))!=Character.toLowerCase(s.charAt(r)))
+            {
+                return false;
+            }
+            l++;r--;
+        }
+        return true;
+    }
+    public boolean AlphaNum(char c)
+    {
+        return(c>='A'&& c<='Z' || c>='a' && c<='z' || c>='0' && c<='9');
+    }
+}
